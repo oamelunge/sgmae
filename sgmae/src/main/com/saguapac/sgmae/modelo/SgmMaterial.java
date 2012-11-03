@@ -11,6 +11,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -19,11 +20,6 @@ import javax.persistence.Table;
 @Table(name="SGM_MATERIAL")
 public class SgmMaterial implements Serializable {
 
-
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -56,6 +52,7 @@ public class SgmMaterial implements Serializable {
 	private List<SgmOtMaterial> sgmOtMaterial;
 
 	@ManyToOne(optional=false,fetch=FetchType.LAZY)
+	@JoinColumn(name="ID_CATEGORIA", nullable=false)
 	private SgmCategoriaMaterial sgmCategoriaMaterial;
 
 	public Long getIdMaterial() {

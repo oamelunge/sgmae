@@ -1,28 +1,35 @@
 package com.saguapac.sgmae.modelo;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="SGM_OT_TIPOS_TRABAJO")
-public class SgmOtTiposTrabajo {
+public class SgmOtTiposTrabajo implements Serializable {
 
-	
+
+	private static final long serialVersionUID = 8817807678112784662L;
+
 	@Id
 	@Column(name="ID_OT_TIPOS_TRABAJO")
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long idOTTiposTrabajo;
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
+	@JoinColumn(name="ID_TIPO_TRABAJO", nullable=false)
 	private SgmTiposTrabajo sgmTiposTrabajo;
 	
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
+	@JoinColumn(name="ID_ORDEN_TRABAJO", nullable=false)
 	private SgmOrdenTrabajo sgmOrdenTrabajo;
 	
 	

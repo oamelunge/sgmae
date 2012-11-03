@@ -1,5 +1,6 @@
 package com.saguapac.sgmae.modelo;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -14,7 +15,13 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="SGM_TIPOS_TRABAJO")
-public class SgmTiposTrabajo {
+public class SgmTiposTrabajo implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4958594247807668043L;
+
 
 	@Id
 	@Column(name="ID_TIPO_TRABAJO")

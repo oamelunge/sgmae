@@ -54,6 +54,9 @@ public class SgmOrdenTrabajo implements Serializable {
     @OneToMany(fetch=FetchType.LAZY, mappedBy="sgmOrdenTrabajo")
     private List<SgmOtTiposTrabajo> sgmOtTiposTrabajo;
 	
+    @OneToMany(fetch=FetchType.LAZY, mappedBy="sgmOrdenTrabajo")
+    private List<SgmOtTecnico> sgmOtTecnicos;
+    
 	public SgmOrdenTrabajo() {
 		
 	}
@@ -120,6 +123,14 @@ public class SgmOrdenTrabajo implements Serializable {
 
 	public List<SgmOtTiposTrabajo> getSgmOtTiposTrabajo() {
 		return sgmOtTiposTrabajo;
+	}
+
+	public void setSgmOtTecnicos(List<SgmOtTecnico> sgmOtTecnicos) {
+		this.sgmOtTecnicos = sgmOtTecnicos;
+	}
+
+	public List<SgmOtTecnico> getSgmOtTecnicos() {
+		return sgmOtTecnicos;
 	}
 
 

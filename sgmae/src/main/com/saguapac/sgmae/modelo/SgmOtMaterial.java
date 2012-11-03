@@ -10,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -17,10 +18,7 @@ import javax.persistence.Table;
 @Table(name="SGM_OT_MATERIAL")
 public class SgmOtMaterial implements Serializable {
 
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -41,9 +39,11 @@ public class SgmOtMaterial implements Serializable {
 	private Auditorias auditorias;
 	
 	@ManyToOne(optional=false, fetch=FetchType.LAZY)
+	@JoinColumn(name="ID_ORDEN_TRABAJO", nullable=false)
 	private SgmOrdenTrabajo SgmOrdenTrabajo;
 	
 	@ManyToOne(optional=false, fetch=FetchType.LAZY)
+	@JoinColumn(name="ID_MATERIAL", nullable=false)
 	private SgmMaterial sgmMaterial;
 	
 	public Long getIdOTMaterial() {
